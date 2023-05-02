@@ -13,7 +13,7 @@
           "ingredients": ["Beef tenderloin", "Puff pastry", "Mushrooms", "Prosciutto", "Mustard"],
           "cookingMethod": "Preheat the oven to 200C. Roll out the puff pastry, place the beef on top, cover with a mixture of mushrooms, prosciutto, and mustard. Wrap the pastry around the beef, brush with egg wash, and bake for 40-50 minutes.",
           "ratings": 4.8,
-          "picture": ""
+          "picture": "https://i.ibb.co/f4rqF3g/beff-wllington.jpg"
         },
         {
           "id": 2,
@@ -21,7 +21,7 @@
           "ingredients": ["Macaroni", "Lobster", "Cheddar cheese", "Parmesan cheese", "Milk"],
           "cookingMethod": "Cook the macaroni according to package directions. Mix the lobster with cheddar and Parmesan cheese. Stir in the cooked macaroni and milk. Season with salt and pepper, and bake for 20-25 minutes.",
           "ratings": 4.5,
-          "picture": ""
+          "picture": "https://i.ibb.co/rwsRCNx/lobster-Cheese.jpg"
         },
         {
           "id": 3,
@@ -29,7 +29,7 @@
           "ingredients": ["Flour", "Sugar", "Butter", "Eggs", "Cocoa powder"],
           "cookingMethod": "Melt the butter in a saucepan. Add the sugar and cocoa powder, and mix well. Beat in the eggs and flour. Pour the mixture into a greased baking pan, and bake for 20-25 minutes.",
           "ratings": 4.7,
-          "picture": ""
+          "picture": "https://i.ibb.co/L5pFnXk/pexels-kshkt-kttk-887853.jpg"
         }
       ]
     }, 
@@ -42,31 +42,31 @@
         "likes": 1500000,
         "picture": "https://i.ibb.co/S5w8N8w/pexels-kampus-production-8629105.jpg",
         "recipes": [
-          {
-            "id": 1,
-            "recipeName": "Grilled Steak",
-            "ingredients": ["Ribeye steak", "Olive oil", "Salt", "Pepper", "Garlic"],
-            "cookingMethod": "Rub the steak with olive oil, salt, pepper, and garlic. Grill the steak over high heat for 5-6 minutes per side, or until it reaches your desired doneness.",
-            "ratings": 4.9,
-            "picture": ""
-          },
-          {
-            "id": 2,
-            "recipeName": "Grilled Corn",
-            "ingredients": ["Corn on the cob", "Butter", "Salt", "Pepper", "Lime juice"],
-            "cookingMethod": "Grill the corn over high heat for 10-12 minutes, or until it is lightly charred. Brush the corn with butter, and season with salt, pepper, and lime juice.",
-            "ratings": 4.6,
-            "picture": ""
-          },
-          {
-            "id": 3,
-            "recipeName": "Blueberry Pancakes",
-            "ingredients": ["Flour", "Sugar", "Baking powder", "Milk", "Eggs"],
-            "cookingMethod": "Mix the flour, sugar, and baking powder in a bowl. Beat in the milk and eggs. Heat a non-stick skillet over medium heat, and ladle the batter onto the skillet. Cook until bubbles form on the surface, then flip and cook until golden brown.",
-            "ratings": 4.7,
-            "picture": ""
-          }
-        ]
+            {
+              "id": 1,
+              "recipeName": "Beef Wellington",
+              "ingredients": ["Beef tenderloin", "Puff pastry", "Mushrooms", "Prosciutto", "Mustard"],
+              "cookingMethod": "Preheat the oven to 200C. Roll out the puff pastry, place the beef on top, cover with a mixture of mushrooms, prosciutto, and mustard. Wrap the pastry around the beef, brush with egg wash, and bake for 40-50 minutes.",
+              "ratings": 4.8,
+              "picture": "https://i.ibb.co/f4rqF3g/beff-wllington.jpg"
+            },
+            {
+              "id": 2,
+              "recipeName": "Lobster Mac and Cheese",
+              "ingredients": ["Macaroni", "Lobster", "Cheddar cheese", "Parmesan cheese", "Milk"],
+              "cookingMethod": "Cook the macaroni according to package directions. Mix the lobster with cheddar and Parmesan cheese. Stir in the cooked macaroni and milk. Season with salt and pepper, and bake for 20-25 minutes.",
+              "ratings": 4.5,
+              "picture": "https://i.ibb.co/rwsRCNx/lobster-Cheese.jpg"
+            },
+            {
+              "id": 3,
+              "recipeName": "Chocolate Fudge Brownies",
+              "ingredients": ["Flour", "Sugar", "Butter", "Eggs", "Cocoa powder"],
+              "cookingMethod": "Melt the butter in a saucepan. Add the sugar and cocoa powder, and mix well. Beat in the eggs and flour. Pour the mixture into a greased baking pan, and bake for 20-25 minutes.",
+              "ratings": 4.7,
+              "picture": "https://i.ibb.co/L5pFnXk/pexels-kshkt-kttk-887853.jpg"
+            }
+          ]
       }, 
       {
         "id": 3,
@@ -76,31 +76,31 @@
         "likes": 1800000,
         "picture": "https://i.ibb.co/wdKpvNc/pexels-max-avans-5056618.jpg",
         "recipes": [
-          {
-            "id": 1,
-            "recipeName": "Jambalaya",
-            "ingredients": ["Andouille sausage", "Chicken thighs", "Shrimp", "Rice", "Onion"],
-            "cookingMethod": "Sauté the onion and sausage in a large pot. Add the chicken and cook until browned. Stir in the rice, and add enough water or chicken stock to cover the rice. Simmer until the rice is cooked and the liquid is absorbed. Add the shrimp and cook until pink.",
-            "ratings": 4.8,
-            "picture": ""
-          },
-          {
-            "id": 2,
-            "recipeName": "Bananas Foster",
-            "ingredients": ["Bananas", "Brown sugar", "Butter", "Dark rum", "Vanilla ice cream"],
-            "cookingMethod": "Melt the butter and brown sugar in a pan. Add the sliced bananas, and cook until softened. Remove from heat, and add the rum. Return to the heat and flambé. Serve over a scoop of vanilla ice cream.",
-            "ratings": 4.7,
-            "picture": ""
-          },
-          {
-            "id": 3,
-            "recipeName": "Cajun Shrimp Pasta",
-            "ingredients": ["Shrimp", "Penne pasta", "Heavy cream", "Garlic", "Cajun seasoning"],
-            "cookingMethod": "Cook the pasta according to package directions. Sauté the shrimp and garlic in a pan. Add the heavy cream and Cajun seasoning, and simmer until thickened. Add the pasta to the sauce, and toss to coat.",
-            "ratings": 4.6,
-            "picture": ""
-          }
-        ]
+            {
+              "id": 1,
+              "recipeName": "Beef Wellington",
+              "ingredients": ["Beef tenderloin", "Puff pastry", "Mushrooms", "Prosciutto", "Mustard"],
+              "cookingMethod": "Preheat the oven to 200C. Roll out the puff pastry, place the beef on top, cover with a mixture of mushrooms, prosciutto, and mustard. Wrap the pastry around the beef, brush with egg wash, and bake for 40-50 minutes.",
+              "ratings": 4.8,
+              "picture": "https://i.ibb.co/f4rqF3g/beff-wllington.jpg"
+            },
+            {
+              "id": 2,
+              "recipeName": "Lobster Mac and Cheese",
+              "ingredients": ["Macaroni", "Lobster", "Cheddar cheese", "Parmesan cheese", "Milk"],
+              "cookingMethod": "Cook the macaroni according to package directions. Mix the lobster with cheddar and Parmesan cheese. Stir in the cooked macaroni and milk. Season with salt and pepper, and bake for 20-25 minutes.",
+              "ratings": 4.5,
+              "picture": "https://i.ibb.co/rwsRCNx/lobster-Cheese.jpg"
+            },
+            {
+              "id": 3,
+              "recipeName": "Chocolate Fudge Brownies",
+              "ingredients": ["Flour", "Sugar", "Butter", "Eggs", "Cocoa powder"],
+              "cookingMethod": "Melt the butter in a saucepan. Add the sugar and cocoa powder, and mix well. Beat in the eggs and flour. Pour the mixture into a greased baking pan, and bake for 20-25 minutes.",
+              "ratings": 4.7,
+              "picture": "https://i.ibb.co/L5pFnXk/pexels-kshkt-kttk-887853.jpg"
+            }
+          ]
       },
 
       {
@@ -110,7 +110,32 @@
         "numberOfRecipes": 70,
         "likes": 1200000,
         "picture": "https://i.ibb.co/hfMk4Zg/pexels-cottonbro-studio-4253302.jpg",
-        "recipes": []
+        "recipes": [
+            {
+              "id": 1,
+              "recipeName": "Beef Wellington",
+              "ingredients": ["Beef tenderloin", "Puff pastry", "Mushrooms", "Prosciutto", "Mustard"],
+              "cookingMethod": "Preheat the oven to 200C. Roll out the puff pastry, place the beef on top, cover with a mixture of mushrooms, prosciutto, and mustard. Wrap the pastry around the beef, brush with egg wash, and bake for 40-50 minutes.",
+              "ratings": 4.8,
+              "picture": "https://i.ibb.co/f4rqF3g/beff-wllington.jpg"
+            },
+            {
+              "id": 2,
+              "recipeName": "Lobster Mac and Cheese",
+              "ingredients": ["Macaroni", "Lobster", "Cheddar cheese", "Parmesan cheese", "Milk"],
+              "cookingMethod": "Cook the macaroni according to package directions. Mix the lobster with cheddar and Parmesan cheese. Stir in the cooked macaroni and milk. Season with salt and pepper, and bake for 20-25 minutes.",
+              "ratings": 4.5,
+              "picture": "https://i.ibb.co/rwsRCNx/lobster-Cheese.jpg"
+            },
+            {
+              "id": 3,
+              "recipeName": "Chocolate Fudge Brownies",
+              "ingredients": ["Flour", "Sugar", "Butter", "Eggs", "Cocoa powder"],
+              "cookingMethod": "Melt the butter in a saucepan. Add the sugar and cocoa powder, and mix well. Beat in the eggs and flour. Pour the mixture into a greased baking pan, and bake for 20-25 minutes.",
+              "ratings": 4.7,
+              "picture": "https://i.ibb.co/L5pFnXk/pexels-kshkt-kttk-887853.jpg"
+            }
+          ]
       },
       {
         "id": 5,
@@ -119,7 +144,32 @@
         "numberOfRecipes": 90,
         "likes": 2200000,
         "picture": "https://i.ibb.co/gD2FD46/pexels-2102934.jpg",
-        "recipes": []
+        "recipes": [
+            {
+              "id": 1,
+              "recipeName": "Beef Wellington",
+              "ingredients": ["Beef tenderloin", "Puff pastry", "Mushrooms", "Prosciutto", "Mustard"],
+              "cookingMethod": "Preheat the oven to 200C. Roll out the puff pastry, place the beef on top, cover with a mixture of mushrooms, prosciutto, and mustard. Wrap the pastry around the beef, brush with egg wash, and bake for 40-50 minutes.",
+              "ratings": 4.8,
+              "picture": "https://i.ibb.co/f4rqF3g/beff-wllington.jpg"
+            },
+            {
+              "id": 2,
+              "recipeName": "Lobster Mac and Cheese",
+              "ingredients": ["Macaroni", "Lobster", "Cheddar cheese", "Parmesan cheese", "Milk"],
+              "cookingMethod": "Cook the macaroni according to package directions. Mix the lobster with cheddar and Parmesan cheese. Stir in the cooked macaroni and milk. Season with salt and pepper, and bake for 20-25 minutes.",
+              "ratings": 4.5,
+              "picture": "https://i.ibb.co/rwsRCNx/lobster-Cheese.jpg"
+            },
+            {
+              "id": 3,
+              "recipeName": "Chocolate Fudge Brownies",
+              "ingredients": ["Flour", "Sugar", "Butter", "Eggs", "Cocoa powder"],
+              "cookingMethod": "Melt the butter in a saucepan. Add the sugar and cocoa powder, and mix well. Beat in the eggs and flour. Pour the mixture into a greased baking pan, and bake for 20-25 minutes.",
+              "ratings": 4.7,
+              "picture": "https://i.ibb.co/L5pFnXk/pexels-kshkt-kttk-887853.jpg"
+            }
+          ]
       },
       {
         "id": 6,
@@ -128,7 +178,32 @@
         "numberOfRecipes": 110,
         "likes": 3000000,
         "picture": "https://i.ibb.co/Ptn2cSF/pexels-hicret-14811401.jpg",
-        "recipes": []
+        "recipes": [
+            {
+              "id": 1,
+              "recipeName": "Beef Wellington",
+              "ingredients": ["Beef tenderloin", "Puff pastry", "Mushrooms", "Prosciutto", "Mustard"],
+              "cookingMethod": "Preheat the oven to 200C. Roll out the puff pastry, place the beef on top, cover with a mixture of mushrooms, prosciutto, and mustard. Wrap the pastry around the beef, brush with egg wash, and bake for 40-50 minutes.",
+              "ratings": 4.8,
+              "picture": "https://i.ibb.co/f4rqF3g/beff-wllington.jpg"
+            },
+            {
+              "id": 2,
+              "recipeName": "Lobster Mac and Cheese",
+              "ingredients": ["Macaroni", "Lobster", "Cheddar cheese", "Parmesan cheese", "Milk"],
+              "cookingMethod": "Cook the macaroni according to package directions. Mix the lobster with cheddar and Parmesan cheese. Stir in the cooked macaroni and milk. Season with salt and pepper, and bake for 20-25 minutes.",
+              "ratings": 4.5,
+              "picture": "https://i.ibb.co/rwsRCNx/lobster-Cheese.jpg"
+            },
+            {
+              "id": 3,
+              "recipeName": "Chocolate Fudge Brownies",
+              "ingredients": ["Flour", "Sugar", "Butter", "Eggs", "Cocoa powder"],
+              "cookingMethod": "Melt the butter in a saucepan. Add the sugar and cocoa powder, and mix well. Beat in the eggs and flour. Pour the mixture into a greased baking pan, and bake for 20-25 minutes.",
+              "ratings": 4.7,
+              "picture": "https://i.ibb.co/L5pFnXk/pexels-kshkt-kttk-887853.jpg"
+            }
+          ]
       }
 
 ]
