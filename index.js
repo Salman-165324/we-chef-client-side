@@ -2,9 +2,16 @@ const express = require('express');
 const app = express() 
 const port = 5000; 
 
-app.get('/', (req, res) => {
+const allChefs = require('./data/chefs.json')
 
-    res.send(`Welcome to WeChef.com server`)
+app.get('/allChefs', (req, res) => {
+
+    res.send(allChefs); 
+})
+
+app.get('/chefs', (req, res) => {
+
+    res.send(); 
 })
 
 app.listen(port, () => {
