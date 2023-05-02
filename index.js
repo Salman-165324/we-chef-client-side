@@ -4,14 +4,22 @@ const port = 5000;
 
 const allChefs = require('./data/chefs.json')
 
+app.get('/', (req, res) => {
+
+    res.send("Welcome to WeChef"); 
+})
+
 app.get('/allChefs', (req, res) => {
 
     res.send(allChefs); 
 })
+app.get('/allChefs/:id', (req, res) => {
 
-app.get('/chefs', (req, res) => {
-
-    res.send(); 
+    const id = req.params.id; 
+    
+    const selectedChef = allChefs.find( chefs => chefs.id == id)
+    res.send(selectedChef);
+    
 })
 
 app.listen(port, () => {
