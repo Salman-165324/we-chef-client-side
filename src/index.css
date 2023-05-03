@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .weChef-btn-primary {
+    @apply btn border-none hover:bg-[#e0524b] bg-[#e17f79]
+  }
+}
