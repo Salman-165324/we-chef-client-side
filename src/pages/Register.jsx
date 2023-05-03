@@ -42,6 +42,7 @@ const Register = () => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(error);
+                setErrorText(errorMessage); 
                 // ..
             });
 
@@ -68,6 +69,7 @@ const Register = () => {
                 // The AuthCredential type that was used.
                 const credential = GoogleAuthProvider.credentialFromError(error);
                 console.log(error);
+                setErrorText(errorMessage)
             });
 
     }
@@ -94,6 +96,7 @@ const Register = () => {
                 const credential = GithubAuthProvider.credentialFromError(error);
                 
                 console.log(error); 
+                setErrorText(errorMessage); 
             });
     }
 
@@ -103,11 +106,11 @@ const Register = () => {
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Register now!</h1>
                 </div>
-                <div onSubmit={handleRegister} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div  className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
                     <div className="card-body">
 
-                        <form >
+                        <form onSubmit={handleRegister}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
