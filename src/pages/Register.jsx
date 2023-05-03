@@ -3,8 +3,9 @@ import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 const Register = () => {
-    const { register } = useContext(AuthContext);
+    const { register, addUserNameAndPhoto, registerWithGoogle } = useContext(AuthContext);
     const [errorText, setErrorText] = useState('');
     const handleRegister = e => {
         setErrorText('')
@@ -21,19 +22,46 @@ const Register = () => {
             setErrorText('Password needs to at least 6 character long');
             return;
         }
-
+        // Register With Email and Password 
         register(email, password)
             .then((userCredential) => {
                 // Signed in 
                 const newUser = userCredential.user;
-                console.log(newUser); 
-                // ...
+                console.log(newUser);
+                if (name || photoURL) {
+                    addUserNameAndPhoto(name, photoURL)
+                        .then(() => {
+                            // Profile updated!
+                            // ...
+                        }).catch((error) => {
+                            console.log(error)
+                        });
+                }
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log(error); 
+                console.log(error);
                 // ..
+            });
+        // Register With Google
+        registerWithGoogle()
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                // The signed-in user info.
+                const newUser = result.user;
+                console.log(newUser); 
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.customData.email;
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                console.log(error);
             });
     }
     return (
