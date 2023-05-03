@@ -1,12 +1,13 @@
 import React, { createContext } from 'react';
 import app from '../../firebase/firebase.config';
-import { getAuth, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, GithubAuthProvider } from "firebase/auth";
 
 export const AuthContext = createContext(null); 
 const AuthProvider = ({children}) => {
 
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
     const user = {displayName: 'salman'}
     const register = (email, password) => {
 
@@ -22,9 +23,15 @@ const AuthProvider = ({children}) => {
     const registerWithGoogle = () => {
         return signInWithPopup(auth, googleProvider); 
     }
-    const authDetails = {
-        user, register, addUserNameAndPhoto, registerWithGoogle 
+
+    const registerWithGithub = () => {
+        return signInWithPopup(auth, githubProvider); 
     }
+
+    const authDetails = {
+        user, register, addUserNameAndPhoto, registerWithGoogle, registerWithGithub 
+    }
+
     return (
         <AuthContext.Provider value={authDetails}>
             {children}

@@ -3,9 +3,9 @@ import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 const Register = () => {
-    const { register, addUserNameAndPhoto, registerWithGoogle } = useContext(AuthContext);
+    const { register, addUserNameAndPhoto, registerWithGoogle, registerWithGithub } = useContext(AuthContext);
     const [errorText, setErrorText] = useState('');
     const handleRegister = e => {
         setErrorText('')
@@ -44,7 +44,13 @@ const Register = () => {
                 console.log(error);
                 // ..
             });
-        // Register With Google
+
+    }
+
+
+    // Register With Google
+    const handleGoogleSignup = e => {
+
         registerWithGoogle()
             .then((result) => {
                 // This gives you a Google Access Token. You can use it to access the Google API.
@@ -63,7 +69,34 @@ const Register = () => {
                 const credential = GoogleAuthProvider.credentialFromError(error);
                 console.log(error);
             });
+
     }
+
+    // Register with github
+    const handleSignupWithGithub = () => {
+
+        registerWithGithub()
+            .then((result) => {
+                // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+                const credential = GithubAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+
+                // The signed-in user info.
+                const newUser = result.user;
+                console.log(newUser); 
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.customData.email;
+                // The AuthCredential type that was used.
+                const credential = GithubAuthProvider.credentialFromError(error);
+                
+                console.log(error); 
+            });
+    }
+
     return (
         <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
@@ -110,21 +143,22 @@ const Register = () => {
                                 <button className="weChef-btn-primary">Register</button>
                             </div>
                         </form>
+                        {/* Google and Git Signup */}
                         <div className="form-control mt-2">
-                                <button className="btn bg-[#ece6e6] border-[#d3d4d7]  text-[#4b0e0e] hover:bg-[#c0b9b9]">
-                                    <FaGoogle className='mr-2'></FaGoogle>
-                                    Continue with Google</button>
-                            </div>
-                            <div className="form-control mt-2">
-                                <button className="btn bg-[#ece6e6] border-[#d3d4d7]  text-[#4b0e0e] hover:bg-[#c0b9b9]">
-                                    <FaGithub className='mr-2'></FaGithub>
-                                    Continue with Github</button>
-                            </div>
-                            <div className='mt-2'>
-                                <p>Already have an account? <Link className='underline' to='/login'>Login</Link></p>
-                            </div>
-                    </div>
+                            <button onClick={handleGoogleSignup} className="btn bg-[#ece6e6] border-[#d3d4d7]  text-[#4b0e0e] hover:bg-[#c0b9b9]">
+                                <FaGoogle className='mr-2'></FaGoogle>
+                                Continue with Google</button>
+                        </div>
+                        <div className="form-control mt-2">
+                            <button onClick={handleSignupWithGithub} className="btn bg-[#ece6e6] border-[#d3d4d7]  text-[#4b0e0e] hover:bg-[#c0b9b9]">
+                                <FaGithub className='mr-2'></FaGithub>
+                                Continue with Github</button>
+                        </div>
+                        <div className='mt-2'>
+                            <p>Already have an account? <Link className='underline' to='/login'>Login</Link></p>
+                        </div>
 
+                    </div>
                 </div>
             </div>
         </div>
