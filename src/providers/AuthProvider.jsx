@@ -1,14 +1,14 @@
-import React, { createContext } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import app from '../../firebase/firebase.config';
-import { getAuth, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, GithubAuthProvider, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, GithubAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 
 export const AuthContext = createContext(null); 
 const AuthProvider = ({children}) => {
-
+    const [user, setUser] = useState(null)
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
-    const user = {displayName: 'salman'}
+
 
     // Functions for Signup
     const register = (email, password) => {
@@ -22,6 +22,13 @@ const AuthProvider = ({children}) => {
           }); 
     }
 
+    // Functions for Login 
+
+    const login = (email, password) => {
+
+        return signInWithEmailAndPassword(auth, email, password); 
+    }
+
     const signInWithGoogle = () => {
         return signInWithPopup(auth, googleProvider); 
     }
@@ -30,19 +37,28 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, githubProvider); 
     }
 
-    // Functions for Login 
-
-    const login = (email, password) => {
-
-        return signInWithEmailAndPassword(auth, email, password); 
-    }
-
 
     // Function for logout 
 
     const logout = () => {
         return signOut(auth); 
     }
+
+    // setting observer on the Auth Object 
+
+    useEffect(()=> {
+
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser); 
+
+        })
+
+        return () => {
+
+            unsubscribe(); 
+        }
+
+    }, [])
 
 
 
