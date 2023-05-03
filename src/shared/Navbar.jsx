@@ -5,17 +5,17 @@ import { AuthContext } from '../providers/AuthProvider';
 
 const Navbar = () => {
 
-    const {user, logout} = useContext(AuthContext); 
+    const { user, logout } = useContext(AuthContext);
     console.log(user);
 
     const handleLogout = () => {
 
         logout()
-        .then(() => {
-            console.log('Logout Successful'); 
-          }).catch((error) => {
-            console.log(error)
-          });
+            .then(() => {
+                console.log('Logout Successful');
+            }).catch((error) => {
+                console.log(error)
+            });
     }
     return (
         <div className="navbar bg-base-100 lg:h-[80px] max-w-[1280px] mx-auto">
@@ -26,16 +26,7 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li className='font-semibold'><Link to='/'>Home</Link></li>
-                        {/* <li tabIndex={0}>
-                            <a className="justify-between">
-                                Parent
-                                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-                            </a>
-                            <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
-                        </li> */}
+
                         <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
                     </ul>
                 </div>
@@ -49,7 +40,25 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a onClick={handleLogout} className="weChef-btn-primary ">Logout</a>
+                {
+                    user ?
+                        <>
+                            <div className="avatar mr-3">
+                                <div className="w-14 rounded-full border-4 border-[#c9827c]">
+                                    <img src={user?.photoURL} alt="Tailwind-CSS-Avatar-component" />
+                                </div>
+                            </div>
+                            <btn onClick={handleLogout} className="btn btn-outline mr-3">Logout</btn>
+                        </> :
+                        <div>
+                            <button className='weChef-btn-primary mr-3'>
+                                <Link to='/login'>Login</Link>
+                            </button>
+                        </div>
+                }
+
+
+
             </div>
         </div>
     );
