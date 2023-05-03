@@ -56,7 +56,7 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             }
-                            <btn onClick={handleLogout} className="btn btn-outline mr-3">Logout</btn>
+                            <button onClick={handleLogout} className="btn btn-outline mr-3">Logout</button>
                         </> :
                         <div>
                             <button className='weChef-btn-primary mr-3'>
