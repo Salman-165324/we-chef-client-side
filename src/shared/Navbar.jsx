@@ -43,11 +43,19 @@ const Navbar = () => {
                 {
                     user ?
                         <>
-                            <div className="avatar mr-3">
-                                <div className="w-14 rounded-full border-4 border-[#c9827c]">
-                                    <img src={user?.photoURL} alt="Tailwind-CSS-Avatar-component" />
+                            {user?.photoURL ?
+                                <div className="avatar mr-3 tooltip tooltip-bottom"  data-tip={user?.displayName}>
+                                    <div className="w-[52px] rounded-full border-4 
+                                    border-[#c9827c]">
+                                        <img src={user?.photoURL} alt="User Profile Image" />
+                                    </div>
+                                </div> :
+                                <div className="avatar placeholder tooltip tooltip-bottom"  data-tip={user?.displayName}>
+                                    <div className="bg-neutral-focus text-neutral-content rounded-full w-[52px] mr-3">
+                                        <span>User</span>
+                                    </div>
                                 </div>
-                            </div>
+                            }
                             <btn onClick={handleLogout} className="btn btn-outline mr-3">Logout</btn>
                         </> :
                         <div>
