@@ -1,8 +1,12 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProvider';
 
 const Navbar = () => {
+
+    const {user} = useContext(AuthContext); 
+    console.log(user);
     return (
         <div className="navbar bg-base-100 lg:h-[80px] max-w-[1280px] mx-auto">
             <div className="navbar-start">

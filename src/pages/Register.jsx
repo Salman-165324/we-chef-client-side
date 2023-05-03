@@ -1,24 +1,40 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProvider';
 const Register = () => {
-    const [errorText, setErrorText] = useState(''); 
+    const { register } = useContext(AuthContext);
+    const [errorText, setErrorText] = useState('');
     const handleRegister = e => {
         setErrorText('')
-        e.preventDefault(); 
-        const form = e.target; 
+        e.preventDefault();
+        const form = e.target;
         const name = form.name.value;
         const password = form.password.value;
         const photoURL = form.photoURL.value;
         const email = form.email.value;
-        console.log(name, password, photoURL, email); 
+        console.log(name, password, photoURL, email);
 
-        if (password.length < 6){
+        if (password.length < 6) {
 
-            setErrorText('Password needs to at least 6 character long'); 
-            return; 
+            setErrorText('Password needs to at least 6 character long');
+            return;
         }
+
+        register(email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const newUser = userCredential.user;
+                console.log(newUser); 
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(error); 
+                // ..
+            });
     }
     return (
         <div className="hero min-h-screen">
@@ -32,32 +48,32 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input name='name' type="text" placeholder="name" className="input input-bordered" required />
+                            <input name='name' type="text" placeholder="name" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
-                            <input name='photoURL' type="text" placeholder="photo URL" className="input input-bordered" required />
+                            <input name='photoURL' type="url" placeholder="photo URL" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input name='email' type="text" placeholder="email" className="input input-bordered" required />
+                            <input name='email' type="email" placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input name='password' type="text" placeholder="password" className="input input-bordered" required />
+                            <input name='password' type="password" placeholder="password" className="input input-bordered" required />
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                         </div>
                         <div>
                             <p className='text-red-500 font-semibold ml-1'>{errorText}</p>
-                            
+
                         </div>
                         <div className="form-control mt-6">
                             <button className="weChef-btn-primary">Register</button>
