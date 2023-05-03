@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../shared/Navbar';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -8,13 +9,15 @@ const Header = () => {
                 <Navbar></Navbar>
             </div>
             {/* <Navbar className="absolute top-0 w-full z-50"></Navbar> */}
-            <div className="hero min-h-screen" style={{ backgroundImage: `url("/images/stock/photo-1507358522600-9f71e620c44e.jpg")` }}>
-                <div className="hero-overlay bg-opacity-60"></div>
+            <div className="hero min-h-screen" style={{ backgroundImage: `url("https://images.pexels.com/photos/568370/pexels-photo-568370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")` }}>
+                <div className="hero-overlay bg-opacity-40"></div>
                 <div className="hero-content text-center text-neutral-content">
-                    <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                        <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <button className="btn btn-primary">Get Started</button>
+                    <div className="max-w-lg">
+                        <h1 className="mb-5 text-5xl font-bold">Welcome to WeChef!</h1>
+                        <p className="mb-5">WeChef is the ultimate cooking social community, where recipes come to life. By joining us you will join a robust foodie community and where you will get to share your recipes and food ideas with hundreds of other like-minded members.</p>
+                        <button className="weChef-btn-primary">
+                            <Link to= '/register'>Get Started</Link>
+                        </button>
                     </div>
                 </div>
             </div>
