@@ -5,8 +5,18 @@ import { AuthContext } from '../providers/AuthProvider';
 
 const Navbar = () => {
 
-    const {user} = useContext(AuthContext); 
+    const {user, logout} = useContext(AuthContext); 
     console.log(user);
+
+    const handleLogout = () => {
+
+        logout()
+        .then(() => {
+            console.log('Logout Successful'); 
+          }).catch((error) => {
+            console.log(error)
+          });
+    }
     return (
         <div className="navbar bg-base-100 lg:h-[80px] max-w-[1280px] mx-auto">
             <div className="navbar-start">
@@ -39,7 +49,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Get started</a>
+                <a onClick={handleLogout} className="weChef-btn-primary ">Logout</a>
             </div>
         </div>
     );
