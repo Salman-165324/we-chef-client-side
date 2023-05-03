@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 const Register = () => {
-    const { register, addUserNameAndPhoto, registerWithGoogle, registerWithGithub } = useContext(AuthContext);
+    const { register, addUserNameAndPhoto, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
     const [errorText, setErrorText] = useState('');
     const handleRegister = e => {
         setErrorText('')
@@ -50,9 +50,9 @@ const Register = () => {
 
 
     // Register With Google
-    const handleGoogleSignup = e => {
+    const handleGoogleSignin = e => {
 
-        registerWithGoogle()
+        signInWithGoogle()
             .then((result) => {
                 // This gives you a Google Access Token. You can use it to access the Google API.
                 const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -75,9 +75,9 @@ const Register = () => {
     }
 
     // Register with github
-    const handleSignupWithGithub = () => {
+    const handleSignInWithGithub = () => {
 
-        registerWithGithub()
+        signInWithGithub()
             .then((result) => {
                 // This gives you a GitHub Access Token. You can use it to access the GitHub API.
                 const credential = GithubAuthProvider.credentialFromResult(result);
@@ -148,12 +148,12 @@ const Register = () => {
                         </form>
                         {/* Google and Git Signup */}
                         <div className="form-control mt-2">
-                            <button onClick={handleGoogleSignup} className="btn bg-[#ece6e6] border-[#d3d4d7]  text-[#4b0e0e] hover:bg-[#c0b9b9]">
+                            <button onClick={handleGoogleSignin} className="btn bg-[#ece6e6] border-[#d3d4d7]  text-[#4b0e0e] hover:bg-[#c0b9b9]">
                                 <FaGoogle className='mr-2'></FaGoogle>
                                 Continue with Google</button>
                         </div>
                         <div className="form-control mt-2">
-                            <button onClick={handleSignupWithGithub} className="btn bg-[#ece6e6] border-[#d3d4d7]  text-[#4b0e0e] hover:bg-[#c0b9b9]">
+                            <button onClick={handleSignInWithGithub} className="btn bg-[#ece6e6] border-[#d3d4d7]  text-[#4b0e0e] hover:bg-[#c0b9b9]">
                                 <FaGithub className='mr-2'></FaGithub>
                                 Continue with Github</button>
                         </div>

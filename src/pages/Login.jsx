@@ -3,9 +3,10 @@ import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
     const [errorText, setErrorText] = useState('');
-    const { login } = useContext(AuthContext);
+    const { login, signInWithGithub, signInWithGoogle } = useContext(AuthContext);
 
     const handleLogin = e => {
 
@@ -29,6 +30,60 @@ const Login = () => {
                 console.log(error); 
             });
     }
+
+
+        // signin With Google
+        const handleGoogleSignin = e => {
+
+            signInWithGoogle()
+                .then((result) => {
+                    // This gives you a Google Access Token. You can use it to access the Google API.
+                    const credential = GoogleAuthProvider.credentialFromResult(result);
+                    const token = credential.accessToken;
+                    // The signed-in user info.
+                    const newUser = result.user;
+                    console.log(newUser);
+                }).catch((error) => {
+                    // Handle Errors here.
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // The email of the user's account used.
+                    const email = error.customData.email;
+                    // The AuthCredential type that was used.
+                    const credential = GoogleAuthProvider.credentialFromError(error);
+                    console.log(error);
+                    setErrorText(errorMessage)
+                });
+    
+        }
+    
+        // Register with github
+        const handleSignInWithGithub = () => {
+    
+            signInWithGithub()
+                .then((result) => {
+                    // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+                    const credential = GithubAuthProvider.credentialFromResult(result);
+                    const token = credential.accessToken;
+    
+                    // The signed-in user info.
+                    const newUser = result.user;
+                    console.log(newUser); 
+                }).catch((error) => {
+                    // Handle Errors here.
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // The email of the user's account used.
+                    const email = error.customData.email;
+                    // The AuthCredential type that was used.
+                    const credential = GithubAuthProvider.credentialFromError(error);
+                    
+                    console.log(error); 
+                    setErrorText(errorMessage); 
+                });
+        }
+
+
     return (
         <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
@@ -62,12 +117,12 @@ const Login = () => {
                             </div>
                         </form>
                         <div className="form-control mt-2">
-                            <button className="btn bg-[#ece6e6] border-[#d3d4d7]  text-[#4b0e0e] hover:bg-[#c0b9b9]">
+                            <button onClick={handleGoogleSignin} className="btn bg-[#ece6e6] border-[#d3d4d7]  text-[#4b0e0e] hover:bg-[#c0b9b9]">
                                 <FaGoogle className='mr-2'></FaGoogle>
                                 Continue with Google</button>
                         </div>
                         <div className="form-control mt-2">
-                            <button className="btn bg-[#ece6e6] border-[#d3d4d7]  text-[#4b0e0e] hover:bg-[#c0b9b9]">
+                            <button onClick={handleSignInWithGithub} className="btn bg-[#ece6e6] border-[#d3d4d7]  text-[#4b0e0e] hover:bg-[#c0b9b9]">
                                 <FaGithub className='mr-2'></FaGithub>
                                 Continue with Github</button>
                         </div>

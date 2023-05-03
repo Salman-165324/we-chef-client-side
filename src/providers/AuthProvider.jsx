@@ -22,11 +22,11 @@ const AuthProvider = ({children}) => {
           }); 
     }
 
-    const registerWithGoogle = () => {
+    const signInWithGoogle = () => {
         return signInWithPopup(auth, googleProvider); 
     }
 
-    const registerWithGithub = () => {
+    const signInWithGithub = () => {
         return signInWithPopup(auth, githubProvider); 
     }
 
@@ -49,7 +49,7 @@ const AuthProvider = ({children}) => {
 
     // AuthContext value
     const authDetails = {
-        user, register, addUserNameAndPhoto, registerWithGoogle, registerWithGithub, login, logout
+        user, register, addUserNameAndPhoto, signInWithGoogle, signInWithGithub, login, logout
     }
 
     return (
