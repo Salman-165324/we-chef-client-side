@@ -1,11 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { Navigate, createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../layout/MainLayout';
 import Register from '../pages/Register';
 import Login from '../pages/Login';
 import ErrorPage from '../pages/ErrorPage';
 import Home from '../pages/Home';
+import HomeLayout from '../layout/HomeLayout';
 
 const router = createBrowserRouter([
     {
@@ -13,10 +14,12 @@ const router = createBrowserRouter([
       element: <MainLayout></MainLayout>,
       errorElement: <ErrorPage></ErrorPage>, 
       children: [
+
         {
-            path :'/', 
-            element: <Home></Home>
+            path: '/', 
+            element: <Navigate to= '/home'></Navigate>
         },
+   
         {
             path: '/register', 
             element: <Register></Register>
@@ -27,6 +30,11 @@ const router = createBrowserRouter([
         }
       ]
     },
+    {
+        path :'/home', 
+        element: <HomeLayout></HomeLayout>
+    },
+
   ]);
 
 

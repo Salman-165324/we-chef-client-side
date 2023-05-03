@@ -1,13 +1,12 @@
 import React from 'react';
 import Header from '../components/Header';
-import Navbar from '../shared/Navbar';
 
-const Home = () => {
+const HomeLayout = () => {
     return (
         <div>
-            
+            <Header></Header>
         </div>
     );
 };
 
-export default Home;
+export default HomeLayout;
