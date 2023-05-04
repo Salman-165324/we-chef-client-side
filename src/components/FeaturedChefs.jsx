@@ -15,7 +15,9 @@ const FeaturedChefs = () => {
     console.log(allChefs);
     return (
         <section className="text-gray-600 body-font">
+            
             <div className="container px-5 py-24 mx-auto">
+            <h2 className='text-4xl font-bold text-center mb-8 lg:mb-12'>Our Top Chefs</h2>
                 <div className="flex flex-wrap -m-4">
 
                     {
