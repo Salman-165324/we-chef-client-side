@@ -7,6 +7,7 @@ import Login from '../pages/Login';
 import ErrorPage from '../pages/ErrorPage';
 import Home from '../pages/Home';
 import HomeLayout from '../layout/HomeLayout';
+import ChefPage from '../components/ChefPage';
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,12 @@ const router = createBrowserRouter([
         {
             path: '/login', 
             element: <Login></Login>
+        },
+        {
+          path: '/chef/:id', 
+          element: <ChefPage></ChefPage>, 
+          loader: ({params}) => fetch(`https://chef-recipe-hunter-server-side-salman-165324.vercel.app/allChefs/${params.id}`)
+          
         }
       ]
     },
