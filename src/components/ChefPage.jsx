@@ -63,7 +63,7 @@ const ChefPage = () => {
             {/* Recipe Card */}
             <div className='container max-w-[1280px] mx-auto px-5 lg:px-0 pb-16'>
                             <h2 className='text-center text-4xl font-bold'>Top Recipes</h2>
-                            <div className=' mt-8 md:mt-10 grid grid-cols-1 md:grid-col-2 lg:grid-cols-3 gap-4 '>
+                            <div className=' mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-8 '>
                                 {
                                     recipes.map(recipe => <RecipeCard
                                         key={recipe.id}
