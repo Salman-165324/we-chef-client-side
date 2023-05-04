@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '@smastrom/react-rating/style.css'
 import { Rating } from '@smastrom/react-rating'
 import { FaHeart } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 const RecipeCard = ({ recipe }) => {
+
+    const [isFavorite, setFavorite] = useState(false);
 
     const handleFavoriteRecipe = () => {
 
-        
+        if (!isFavorite) {
+
+            toast.success('Added to the Favorite List');
+            setFavorite(true);
+        }
+
+        else {
+
+            toast('Already Added');
+        }
+
     }
 
     const { id, cookingMethod, ingredients, picture, ratings, recipeName } = recipe
@@ -16,9 +29,18 @@ const RecipeCard = ({ recipe }) => {
             <div className='w-[300px] md:w-[360px] mx-auto pb-4 border-4 '>
                 <div className='relative'>
                     <img className='h-72 object-cover w-full' src={picture} alt="" />
-                    <FaHeart className='text-5xl text-[#d6766f] absolute top-1 left-2 stroke-slate-900 stroke-2 hover:text-red-600'></FaHeart>
+
+                    {
+                        !isFavorite ?
+                           
+                                <FaHeart onClick={handleFavoriteRecipe} className='text-5xl text-[#d6766f] absolute top-1 left-2 stroke-slate-900 stroke-2 hover:text-red-600'></FaHeart>:
+
+                                <FaHeart onClick={handleFavoriteRecipe} className='text-5xl absolute top-1 left-2 stroke-slate-900 stroke-2 text-red-600'></FaHeart>
+                           
+                    }
+
                 </div>
-                
+
 
                 <div className='px-3 py-2'>
                     <div className='w-24'>
@@ -34,15 +56,15 @@ const RecipeCard = ({ recipe }) => {
                         <ul className='mt-2 flex gap-x-10 flex-wrap list-disc ml-6'>
 
                             {
-                                ingredients.map( (ingredient, index) => {
+                                ingredients.map((ingredient, index) => {
 
-                                    return( 
-                                        <li 
+                                    return (
+                                        <li
                                             className=''
                                             key={index}
                                         >{ingredient}</li>
-                                        
-                                        )
+
+                                    )
                                 })
                             }
 
