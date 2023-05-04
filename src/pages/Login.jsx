@@ -1,15 +1,18 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
+
     const [errorText, setErrorText] = useState('');
     const { login, signInWithGithub, signInWithGoogle } = useContext(AuthContext);
-
+    const location = useLocation(); 
+    console.log(location); 
+    const from = location?.state?.from?.pathname || '/'; 
+    const navigate = useNavigate(); 
     const handleLogin = e => {
-
         setErrorText('')
         e.preventDefault();
         const form = e.target;
@@ -22,6 +25,7 @@ const Login = () => {
                 // Signed in 
                 const loggedUser = userCredential.user;
                 console.log(loggedUser); 
+                navigate(from, {replace:true}); 
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -42,7 +46,8 @@ const Login = () => {
                     const token = credential.accessToken;
                     // The signed-in user info.
                     const newUser = result.user;
-                    console.log(newUser);
+                    // console.log(newUser);
+                    navigate(from, {replace:true}); 
                 }).catch((error) => {
                     // Handle Errors here.
                     const errorCode = error.code;
@@ -68,7 +73,8 @@ const Login = () => {
     
                     // The signed-in user info.
                     const newUser = result.user;
-                    console.log(newUser); 
+                    // console.log(newUser); 
+                    navigate(from, {replace:true}); 
                 }).catch((error) => {
                     // Handle Errors here.
                     const errorCode = error.code;

@@ -5,18 +5,20 @@ import { getAuth, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvi
 export const AuthContext = createContext(null); 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true); 
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
 
+    // console.log("is loading", loading); 
 
     // Functions for Signup
     const register = (email, password) => {
-
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password); 
     }
     const addUserNameAndPhoto = (name, photoURL) => {
-
+        setLoading(true);
         return updateProfile(auth.currentUser, {
         displayName: name, photoURL: photoURL
           }); 
@@ -25,15 +27,17 @@ const AuthProvider = ({children}) => {
     // Functions for Login 
 
     const login = (email, password) => {
-
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password); 
     }
 
     const signInWithGoogle = () => {
+        setLoading(true);
         return signInWithPopup(auth, googleProvider); 
     }
 
     const signInWithGithub = () => {
+        setLoading(true);
         return signInWithPopup(auth, githubProvider); 
     }
 
@@ -50,7 +54,8 @@ const AuthProvider = ({children}) => {
 
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser); 
-
+            setLoading(false);
+            // console.log("is loading", loading); 
         })
 
         return () => {
@@ -60,12 +65,12 @@ const AuthProvider = ({children}) => {
 
     }, [])
 
-
+    // console.log("is loading", loading); 
 
 
     // AuthContext value
     const authDetails = {
-        user, register, addUserNameAndPhoto, signInWithGoogle, signInWithGithub, login, logout
+        user, register, addUserNameAndPhoto, signInWithGoogle, signInWithGithub, login, logout, loading, 
     }
 
     return (
