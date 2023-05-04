@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
@@ -11,6 +11,7 @@ const Login = () => {
     const location = useLocation(); 
     console.log(location); 
     const from = location?.state?.from?.pathname || '/'; 
+    const previousLocation = location?.state?.from?.pathname; 
     const navigate = useNavigate(); 
     const handleLogin = e => {
         setErrorText('')
@@ -133,7 +134,10 @@ const Login = () => {
                                 Continue with Github</button>
                         </div>
                         <div className='mt-2'>
-                            <p>New to our community? <Link className='underline' to='/register'>Register</Link></p>
+                            <p>New to our community?
+                             <Link className='underline' to='/register' state={{from: previousLocation}}>Register</Link>
+                             {/* <Navigate className='underline' to='/register'>Register</Navigate> */}
+                             </p>
                         </div>
                     </div>
                 </div>

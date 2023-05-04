@@ -1,13 +1,16 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 const Register = () => {
     const { register, addUserNameAndPhoto, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
     const [errorText, setErrorText] = useState('');
     const navigate = useNavigate(); 
+    const location = useLocation(); 
+    console.log(location); 
+    const from = location?.state?.from || '/'
     const handleRegister = e => {
         setErrorText('')
         e.preventDefault();
@@ -39,7 +42,7 @@ const Register = () => {
                         });
                 }
 
-                navigate('/'); 
+                navigate(from); 
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -63,7 +66,7 @@ const Register = () => {
                 // The signed-in user info.
                 const newUser = result.user;
                 // console.log(newUser);
-                navigate('/'); 
+                navigate(from); 
             }).catch((error) => {
                 // Handle Errors here.
                 const errorCode = error.code;
@@ -90,7 +93,7 @@ const Register = () => {
                 // The signed-in user info.
                 const newUser = result.user;
                 // console.log(newUser); 
-                navigate('/'); 
+                navigate(from); 
             }).catch((error) => {
                 // Handle Errors here.
                 const errorCode = error.code;
