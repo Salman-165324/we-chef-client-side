@@ -1,5 +1,5 @@
-* Project: WeChef* 
-Live Site: https://wechaf-61b31.web.app/home
+*Project: WeChef* 
+- Live Site: https://wechaf-61b31.web.app/home
 - In this assignment I have build website for company named WeChef. This company build a community of Chefs to share their recipes and communicate with each other. 
 - First The Home page has 5 section. 
 - In the hero section we have welcome our user with a pleasing food picture and completing content. 
