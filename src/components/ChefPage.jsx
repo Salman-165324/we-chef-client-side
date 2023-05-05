@@ -1,16 +1,19 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import { FaThumbsUp } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import RecipeCard from './RecipeCard';
+import Loader from '../shared/Loader';
 
 const ChefPage = () => {
 
     const chefData = useLoaderData();
     const { chefName, id, likes, numberOfRecipes, picture, yearsOfExperience, recipes, bio
     } = chefData;
-    console.log(chefData);
-    console.log(recipes);
+    // console.log(chefData);
+    // console.log(recipes);
+
+
     return (
         <div>
             <div className="text-gray-600 body-font overflow-hidden">

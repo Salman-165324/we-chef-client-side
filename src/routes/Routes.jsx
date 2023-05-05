@@ -12,44 +12,43 @@ import PrivateRoute from './PrivateRoute';
 
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <MainLayout></MainLayout>,
-      errorElement: <ErrorPage></ErrorPage>, 
-      children: [
+  {
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
 
-        {
-            path: '/', 
-            element: <Navigate to= '/home'></Navigate>
-        },
-   
-        {
-            path: '/register', 
-            element: <Register></Register>
-        }, 
-        {
-            path: '/login', 
-            element: <Login></Login>
-        },
-        {
-          path: '/chef/:id', 
-          element: 
-              <PrivateRoute>
-                <ChefPage></ChefPage>
-              </PrivateRoute>, 
-          loader: ({params}) => fetch(`https://chef-recipe-hunter-server-side-salman-165324.vercel.app/allChefs/${params.id}`)
-          
-        }
-      ]
-    },
-    {
-        path :'/home', 
-        element: <Home></Home>
-                     
-                
-    },
+      {
+        path: '/',
+        element: <Navigate to='/home'></Navigate>
+      },
 
-  ]);
+      {
+        path: '/register',
+        element: <Register></Register>
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/chef/:id',
+        element: <PrivateRoute>
+                   <ChefPage></ChefPage>
+                   </PrivateRoute>,
+        loader: ({ params }) => fetch(`https://chef-recipe-hunter-server-side-salman-165324.vercel.app/allChefs/${params.id}`)
+
+      }
+    ]
+  },
+  {
+    path: '/home',
+    element: <Home></Home>
+
+
+  },
+
+]);
 
 
 export default router;
