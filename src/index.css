@@ -6,4 +6,7 @@
   .weChef-btn-primary {
     @apply btn border-none hover:bg-[#e0524b] bg-[#e17f79]
   }
+  .activeLinkClass {
+    @apply bg-[#c9827c] text-white px-3 py-2 rounded-lg
+  }
 }

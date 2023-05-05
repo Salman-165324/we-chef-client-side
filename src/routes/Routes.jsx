@@ -9,6 +9,7 @@ import Home from '../pages/Home';
 import HomeLayout from '../layout/HomeLayout';
 import ChefPage from '../components/ChefPage';
 import PrivateRoute from './PrivateRoute';
+import Blog from '../pages/Blog';
 
 
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Navigate to='/home'></Navigate>
+      },
+      {
+        path: '/blog', 
+        element: <Blog></Blog>
       },
 
       {
