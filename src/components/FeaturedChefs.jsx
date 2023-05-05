@@ -1,13 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import FeaturedChefCard from './FeaturedChefCard';
+import { AuthContext } from '../providers/AuthProvider';
+import { useNavigation } from 'react-router-dom';
 
 const FeaturedChefs = () => {
     const [allChefs, setAllChefs] = useState([]);
-
+    const navigation = useNavigation(); 
+    console.log(navigation.state); 
     useEffect(() => {
+
         fetch('https://chef-recipe-hunter-server-side-salman-165324.vercel.app/allChefs')
             .then(res => res.json())
-            .then(data => setAllChefs(data))
+            .then(data => {
+                setAllChefs(data)
+            })
             .catch(error => {
                 console.log('Error fetching chefs:', error);
             });

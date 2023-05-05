@@ -10,6 +10,7 @@ import HomeLayout from '../layout/HomeLayout';
 import ChefPage from '../components/ChefPage';
 import PrivateRoute from './PrivateRoute';
 
+
 const router = createBrowserRouter([
     {
       path: "/",
@@ -44,6 +45,8 @@ const router = createBrowserRouter([
     {
         path :'/home', 
         element: <Home></Home>
+                     
+                
     },
 
   ]);

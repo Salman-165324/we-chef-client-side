@@ -10,6 +10,8 @@ const AuthProvider = ({children}) => {
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
 
+
+
     // console.log("is loading", loading); 
 
     // Functions for Signup
@@ -70,7 +72,7 @@ const AuthProvider = ({children}) => {
 
     // AuthContext value
     const authDetails = {
-        user, register, addUserNameAndPhoto, signInWithGoogle, signInWithGithub, login, logout, loading, 
+        user, register, addUserNameAndPhoto, signInWithGoogle, signInWithGithub, login, logout, loading,
     }
 
     return (
